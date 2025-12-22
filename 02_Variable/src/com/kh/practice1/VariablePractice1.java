@@ -1,65 +1,65 @@
 package com.kh.practice1;
 
-import java.util.Scanner;
+import java.util.Scanner;// ï¿½Ô·ï¿½
 
 public class VariablePractice1 {
 	Scanner sc = new Scanner(System.in);
 	public void practice2(){
 		
-		System.out.print("Ã¹ ¹øÂ° Á¤¼ö");
+		System.out.print("Ã¹ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½");
 		int a = sc.nextInt();
 		
-		System.out.print("µÎ ¹øÂ° Á¤¼ö");
+		System.out.print("ï¿½ï¿½ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½");
 		int b = sc.nextInt();
 		
-		System.out.println("´õÇÏ±â : 237");
-		System.out.println("»©±â : 237");
-		System.out.println("°öÇÏ±â : 237");
-		System.out.println("³ª´©±â : 237");
+		System.out.println("ï¿½ï¿½ï¿½Ï±ï¿½ : 237");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ : 237");
+		System.out.println("ï¿½ï¿½ï¿½Ï±ï¿½ : 237");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : 237");
 	}
 	
 	public void practice3() {
 		
 		
-		System.out.print("°¡·Î : ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ : ");
 		double width = sc.nextDouble();
 		
-		System.out.print("¼¼·Î : ");
+		System.out.print("ï¿½ï¿½ï¿½ï¿½ : ");
 		double height = sc.nextDouble();
 		
-		System.out.println("¸éÀû : " + (width*height));
-		System.out.println("µÑ·¹ : " + (width+height)*2);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ : " + (width*height));
+		System.out.println("ï¿½Ñ·ï¿½ : " + (width+height)*2);
 		
 	}
 	
 	public void practice4() {
 		
-		System.out.print("¹®ÀÚ¿­À» ÀÔ·Â : ");
+		System.out.print("ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ : ");
 		String str = sc.next(); // apple
 		
-		System.out.println("Ã¹ ¹øÂ° ¹®ÀÚ :" + str.charAt(0));
-		System.out.println("µÎ ¹øÂ° ¹®ÀÚ :" + str.charAt(1));
-		System.out.println("¼¼ ¹øÂ° ¹®ÀÚ :" + str.charAt(2));
+		System.out.println("Ã¹ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ :" + str.charAt(0));
+		System.out.println("ï¿½ï¿½ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ :" + str.charAt(1));
+		System.out.println("ï¿½ï¿½ ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ :" + str.charAt(2));
 		
-		// Çüº¯È¯ ½Ç½À¹®Á¦
+		// ï¿½ï¿½ï¿½ï¿½È¯ ï¿½Ç½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
 	}
 	
     public void practice5() {
-		System.out.print("±¹ : ");
+		System.out.print("ï¿½ï¿½ : ");
 		double kor = sc.nextDouble();
 		
-		System.out.print("¿µ : ");
+		System.out.print("ï¿½ï¿½ : ");
 		double eng = sc.nextDouble();
 		
-		System.out.print("¼ö : ");
+		System.out.print("ï¿½ï¿½ : ");
 		double math = sc.nextDouble();
 		
 		int total = (int)(kor + eng + math);
 		int avg = (int)((kor + eng + math)/3);
 		
-		System.out.println("ÃÑÁ¡ : " + total);
-		System.out.println("Æò±Õ : " + avg);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ : " + total);
+		System.out.println("ï¿½ï¿½ï¿½ : " + avg);
 	}
 	
     public void method() {

@@ -6,148 +6,143 @@ import java.util.Scanner;
 public class OperatorPractice {
 
 	Scanner sc = new Scanner(System.in);
+
 	public void practice1() {
-		System.out.print("ÀÎ¿ø ¼ö : ");
+		System.out.print("ì¸ì› ìˆ˜ : ");
 		int people = sc.nextInt();
-		
-		System.out.print("»çÅÁ ¼ö : ");
+
+		System.out.print("ì‚¬íƒ• ìˆ˜ : ");
 		int candy = sc.nextInt();
-		
-		System.out.println("1ÀÎ´ç »çÅÁ °³¼ö : " + people / candy);
-		System.out.println("³²´Â »çÅÁ °³¼ö : " + candy % people);
+
+		System.out.println("1ì¸ë‹¹ ì‚¬íƒ• ê°œìˆ˜ : " + people / candy);
+		System.out.println("ë‚¨ëŠ” ì‚¬íƒ• ê°œìˆ˜ : " + candy % people);
 	}
-	
+
 	public void practice2() {
 		char c;
 		String str;
-		System.out.print("ÀÌ¸§ : ");
+		System.out.print("ì´ë¦„ : ");
 		String name = sc.next();
-		System.out.print("ÇĞ³â(¼ıÀÚ¸¸) : ");
+		System.out.print("í•™ë…„(ìˆ«ìë§Œ) : ");
 		int grade = sc.nextInt();
-		System.out.print("¹İ(¼ıÀÚ¸¸) : ");
-		int ¹İ = sc.nextInt();
-		System.out.print("¹øÈ£(¼ıÀÚ¸¸) : ");
+		System.out.print("ë°˜(ìˆ«ìë§Œ) : ");
+		int ë°˜ = sc.nextInt();
+		System.out.print("ë²ˆí˜¸(ìˆ«ìë§Œ) : ");
 		int number = sc.nextInt();
-		System.out.print("¼ºº°(M/F) : ");
+		System.out.print("ì„±ë³„(M/F) : ");
 		String sx = sc.next();
 		c = sx.charAt(0);
-		
-		str = (c=='M' ? "³²ÇĞ»ı" : "¿©ÇĞ»ı");
-		
-		System.out.print("¼ºÀû : ");
+
+		str = (c == 'M' ? "ë‚¨í•™ìƒ" : "ì—¬í•™ìƒ");
+
+		System.out.print("ì„±ì  : ");
 		double score = sc.nextDouble();
-		
-		
-		System.out.print(grade + "ÇĞ³â " + ¹İ + "¹İ " + number + "¹ø "
-				+ name + " " + str + "ÀÇ ¼ºÀûÀº " + score + "ÀÌ´Ù.");
-		
+
+		System.out.print(grade + "í•™ë…„ " + ë°˜ + "ë°˜ " + number + "ë²ˆ " + name + " " + str + "ì˜ ì„±ì ì€ " + score + "ì´ë‹¤.");
+
 	}
-	
+
 	public void practice3() {
-		System.out.print("³ªÀÌ : ");
+		System.out.print("ë‚˜ì´ : ");
 		int age = sc.nextInt();
 		String str;
-		
-		String result = age <= 13 ? "¾î¸°ÀÌ" : 
-			((13 < age && age <= 19) ? "Ã»¼Ò³â" : "¼ºÀÎ");
-		
-		
-		
+
+		String result = age <= 13 ? "ì–´ë¦°ì´" : ((13 < age && age <= 19) ? "ì²­ì†Œë…„" : "ì„±ì¸");
+
 		System.out.println(result);
 	}
-	
+
 	public void practice4() {
-		System.out.print("±¹¾î : ");
+		System.out.print("êµ­ì–´ : ");
 		int kor = sc.nextInt();
-		
-		System.out.print("¿µ¾î : ");
+
+		System.out.print("ì˜ì–´ : ");
 		int eng = sc.nextInt();
-		
-		System.out.print("¼öÇĞ : ");
+
+		System.out.print("ìˆ˜í•™ : ");
 		int math = sc.nextInt();
-		
+
 		int total = kor + eng + math;
-		float avg = total/(float)(3.0);
-		
+		float avg = total / (float) (3.0);
+
 		System.out.println(" ");
-		System.out.println("ÇÕ°è : " + total);
-		System.out.println("Æò±Õ : " + avg);
-		
-		// ¼¼ °ú¸ñ Á¡¼ö°¡ °¢°¢ 40Á¡ ÀÌ»óÀÌ¸é¼­ Æò±ÕÀÌ 60Á¡ ÀÌ»ó-> ÇÕ°İ
-		String str = ( ((kor>=40) && (eng>=40) && math >= 40)) 
-				&& avg>=60 ? "ÇÕ°İ" : "ºÒÇÕ°İ";
+		System.out.println("í•©ê³„ : " + total);
+		System.out.println("í‰ê·  : " + avg);
+
+		// ì„¸ ê³¼ëª© ì ìˆ˜ê°€ ê°ê° 40ì  ì´ìƒì´ë©´ì„œ í‰ê· ì´ 60ì  ì´ìƒ-> í•©ê²©
+		String str = (((kor >= 40) && (eng >= 40) && math >= 40)) && avg >= 60 ? "í•©ê²©" : "ë¶ˆí•©ê²©";
 		System.out.print(str);
 	}
-	
+
 	public void practice5() {
 		String s;
-		System.out.print("ÁÖ¹Î¹øÈ£¸¦ ÀÔ·ÂÇÏ½Ã¿À : ");
+		System.out.print("ì£¼ë¯¼ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì‹œì˜¤ : ");
 		String number = sc.next();
-		
-		boolean result = (number.charAt(7)%2==0 ? true : false);
-		s = (number.charAt(7)%2==0 ? "¿©ÀÚ" : "³²ÀÚ");
+
+		boolean result = (number.charAt(7) % 2 == 0 ? true : false);
+		s = (number.charAt(7) % 2 == 0 ? "ì—¬ì" : "ë‚¨ì");
 		System.out.println(s);
 
 	}
-	
+
 	public void practice6() {
-		int num1,num2,A;
-		System.out.print("Á¤¼ö1 : ");
+		int num1, num2, A;
+		System.out.print("ì •ìˆ˜1 : ");
 		num1 = sc.nextInt();
-		
-		System.out.print("Á¤¼ö2 : ");
+
+		System.out.print("ì •ìˆ˜2 : ");
 		num2 = sc.nextInt();
-		
-		System.out.print("ÀÔ·Â : ");
+
+		System.out.print("ì…ë ¥ : ");
 		A = sc.nextInt();
-		
-		boolean result = (num2<A || A<=num1);
+
+		boolean result = (num2 < A || A <= num1);
 		sc.nextLine();
 		System.out.println(result);
 	}
-	
+
 	public void practice7() {
-		int num1,num2,num3;
-		System.out.print("ÀÔ·Â1 : ");
+		int num1, num2, num3;
+		System.out.print("ì…ë ¥1 : ");
 		num1 = sc.nextInt();
-		
-		System.out.print("ÀÔ·Â2 : ");
+
+		System.out.print("ì…ë ¥2 : ");
 		num2 = sc.nextInt();
-		
-		System.out.print("ÀÔ·Â3 : ");
+
+		System.out.print("ì…ë ¥3 : ");
 		num3 = sc.nextInt();
-		
-		boolean result = ( num1==num2 && num2==num3 );
+
+		boolean result = (num1 == num2 && num2 == num3);
 		System.out.println(result);
 	}
-	
+
 	public void practice8() {
-		int num1,num2,num3;
+		int num1, num2, num3;
 		double incen1 = 1.4;
 		double incen2 = 1.0;
 		double incen3 = 1.15;
-		System.out.print("A»ç¿øÀÇ ¿¬ºÀ : ");
+		System.out.print("Aì‚¬ì›ì˜ ì—°ë´‰ : ");
 		num1 = sc.nextInt();
-		
-		System.out.print("B»ç¿øÀÇ ¿¬ºÀ : ");
+
+		System.out.print("Bì‚¬ì›ì˜ ì—°ë´‰ : ");
 		num2 = sc.nextInt();
-		
-		System.out.print("C»ç¿øÀÇ ¿¬ºÀ : ");
+
+		System.out.print("Cì‚¬ì›ì˜ ì—°ë´‰ : ");
 		num3 = sc.nextInt();
-		
-		double Anum = num1 * incen1 ;
-		double Bnum = num1 * incen2 ;
-		double Cnum = num3 * incen3 ;
-		
+
+		double Anum = num1 * incen1;
+		double Bnum = num1 * incen2;
+		double Cnum = num3 * incen3;
+
 		System.out.println("");
-		System.out.println("A»ç¿øÀÇ ¿¬ºÀ/¿¬ºÀ+a : " + num1 +"/" +Anum);
-		String str1 = Anum >= 3000 ? "3000 ÀÌ»ó" : "3000 ¹Ì¸¸";
+		System.out.println("Aì‚¬ì›ì˜ ì—°ë´‰/ì—°ë´‰+a : " + num1 + "/" + Anum);
+		String str1 = Anum >= 3000 ? "3000 ì´ìƒ" : "3000 ë¯¸ë§Œ";
 		System.out.println(str1);
-		System.out.println("B»ç¿øÀÇ ¿¬ºÀ/¿¬ºÀ+a : " + num2 +"/" +Bnum);
-		String str2 = Bnum >= 3000 ? "3000 ÀÌ»ó" : "3000 ¹Ì¸¸";
+		System.out.println("Bì‚¬ì›ì˜ ì—°ë´‰/ì—°ë´‰+a : " + num2 + "/" + Bnum);
+		String str2 = Bnum >= 3000 ? "3000 ì´ìƒ" : "3000 ë¯¸ë§Œ";
 		System.out.println(str2);
-		System.out.println("C»ç¿øÀÇ ¿¬ºÀ/¿¬ºÀ+a : " + num3 +"/" +Cnum);
-		String str3 = Cnum >= 3000 ? "3000 ÀÌ»ó" : "3000 ¹Ì¸¸";
+		System.out.println("Cì‚¬ì›ì˜ ì—°ë´‰/ì—°ë´‰+a : " + num3 + "/" + Cnum);
+		String str3 = Cnum >= 3000 ? "3000 ì´ìƒ" : "3000 ë¯¸ë§Œ";
 		System.out.println(str3);
 	}
 }
