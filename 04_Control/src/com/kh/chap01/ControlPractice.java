@@ -151,15 +151,15 @@ public class ControlPractice {
 
 		double BMI = weight / (height * height);
 		System.out.print("BMI 지수 : " + BMI);
-		System.out.println();
+		System.out.println("");
 
 		if (BMI < 18.5)
 			System.out.println("저체중");
-		else if (18.5 <= BMI && BMI < 23)
+		else if (BMI < 23)
 			System.out.println("정상체중");
-		else if (23 <= BMI && BMI < 25)
+		else if (BMI < 25)
 			System.out.println("과체중");
-		else if (25 <= BMI && BMI < 30)
+		else if (BMI < 30)
 			System.out.println("비만");
 		else
 			System.out.println("고도비만");
@@ -173,25 +173,25 @@ public class ControlPractice {
 		System.out.print("피연산자2 입력 : ");
 		int b = sc.nextInt();
 
-		System.out.print("연산자를 입력 : ");
+		System.out.print("연산자 입력 : ");
 		String c = sc.next();
 
 		if (a > 0 && b > 0) {
 			switch (c) {
 			case "+":
-				System.out.println(a + " " + c + " " + "= " + a + b);
+				System.out.println(a + " " + c + " " + b + " = " + (a+b));
 				break;
 			case "-":
-				System.out.println(a + " " + c + " " + "= " + (a - b));
+				System.out.println(a + " " + c + " " + b + " = " + (a - b));
 				break;
 			case "*":
-				System.out.println(a + " " + c + " " + "= " + a * b);
+				System.out.println(a + " " + c + " " + b + " = " + (a * b));
 				break;
 			case "/":
-				System.out.println(a + " " + c + " " + "= " + (double) a / (double) b);
+				System.out.println(a + " " + c + " " + b + " = " + a / (double) b);
 				break;
 			case "%":
-				System.out.println(a + " " + c + " " + "= " + a % b);
+				System.out.println(a + " " + c + " " + b + " = " + (a % b));
 				break;
 			default:
 				System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다");
@@ -214,7 +214,7 @@ public class ControlPractice {
 		System.out.print("출석 회수 : ");
 		int g4 = sc.nextInt();
 
-		int total = g1 + g2 + g3 + g4;
+		double total = g1 + g2 + g3 + g4;
 
 		String result;
 		if (total < 70 || g4 < 14)
@@ -227,7 +227,7 @@ public class ControlPractice {
 		System.out.println("기말 고사 점수(30) : " + (float) g2);
 		System.out.println("과제 점수(30) : " + (float) g3);
 		System.out.println("출석 점수(20) : " + (float) g4);
-		System.out.println("총점 : " + (float) total);
+		System.out.println("총점 : " + total);
 		System.out.println(result);
 
 	}
@@ -285,7 +285,7 @@ public class ControlPractice {
 		int a = sc.nextInt();
 		int a1 = a / 1000;
 		int a2 = a / 100 % 10;
-		int a3 = a / 10;
+		int a3 = a / 10 % 10;
 		int a4 = a % 10;
 
 		if (!(1000 <= a && a <= 9999))
