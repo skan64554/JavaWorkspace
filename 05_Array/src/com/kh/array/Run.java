@@ -1,8 +1,9 @@
 package com.kh.array;
 
 public class Run {
-public static void main(String[] args) {
-	A_array a1 = new A_array();
-	a1.method2();
-}
+
+	public static void main(String[] args) {
+		B_ArrayCopy a1 = new B_ArrayCopy();
+		a1.method5();
+	}
 }
