@@ -25,7 +25,7 @@ public class RockPaperScissors {
 			System.out.println("================");
 			System.out.print("가위바위보 : ");
 			String rps = sc.next();
-			String com_rps = com[(int) (Math.random() * 3)];
+			String com_rps = com[(int)(Math.random() * 3)];
 
 			System.out.println("컴퓨터 : " + com_rps);
 			System.out.println(name + " : " + rps);
@@ -61,6 +61,7 @@ public class RockPaperScissors {
 				break;
 			}
 
+			System.out.println("잘못입력하셨습니다");
 		}
 
 	}

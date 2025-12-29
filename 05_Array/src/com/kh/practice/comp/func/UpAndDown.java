@@ -4,12 +4,14 @@ import java.util.Scanner;
 
 public class UpAndDown {
 	Scanner sc = new Scanner(System.in);
+	
 	public void method() {
 		int random = (int)((Math.random()*100+1));
 		System.out.println(random);
-		int cnt = 0;
+		int cnt = 1;
 		
 		while(true) {
+			
 			System.out.print("1~100 사이의 임의의 난수를 맞춰보세요 :");
 			int a = sc.nextInt();
 			
@@ -34,7 +36,6 @@ public class UpAndDown {
 				break;
 			}
 			
-
 		}
 	}
 }

@@ -110,11 +110,12 @@ public class ArrayPractice {
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = str.charAt(i);
 		}
+		// char [] arr = str.toCharArray(); // 문자열을 문자배열로 변환하는 메서드
 
 		System.out.print("문자 : ");
 		char ch = sc.next().charAt(0);
 
-		System.out.print("application에 i가 존재하는 위치(인덱스) : ");
+		System.out.print(str + "에 " + ch + "가 존재하는 위치(인덱스) : ");
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] == ch) {
 				System.out.print(i + " ");
@@ -198,14 +199,15 @@ public class ArrayPractice {
 		System.out.print("배열의 크기를 입력하세요 : ");
 		int size = sc.nextInt();
 		String[] str = new String[size];
-		String[] copy = {};
+
 	int count = 0;
 	int i = 0;
+	
 		while(true) {
-			
+			sc.nextLine();
 			for (int j = count; j < size; j++) {
 				System.out.print(j+1 + "번째 문자열 : ");
-				str[j] = sc.next(); 
+				str[j] = sc.nextLine(); // 띄어쓰기 포함시 nextLine
 				count++;
 			}
 			
@@ -224,12 +226,13 @@ public class ArrayPractice {
 			//	System.out.println(Arrays.toString(copy));
 				continue;
 			}
+			
 			if(ch=='n' || ch=='N') {
 				break;
 			}			
 	}
 		System.out.println(Arrays.toString(str));
 	}
-	}
+}
 	
 
