@@ -1,4 +1,4 @@
-package com.kh.chap04.field.model.vo;
+ package com.kh.chap04.field.model.vo;
 
 public class FieldTest1 {
 	/*
@@ -20,6 +20,18 @@ public class FieldTest1 {
 	 */
 	
 	private int global;// 전역변수 (필드)
+	{
+		// 초기화 블럭
+		// 객체 생성시 최초 1회 실행
+		global = 50; // 거의 안 쓰니까 잊어도 됨
+	}
+	
+	public static int num;
+	// static 초기화 블럭
+	static {
+		// static 변수를 초기화 하는데 사용
+		num = 11;
+	}
 	
 	public void test(int num){// 매개변수(지역변수) 
 		int local = 0; // 지역변수
