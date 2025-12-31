@@ -6,11 +6,9 @@ import com.kh.kw.shape.controller.SquareController;
 import com.kh.kw.shape.controller.TriangleController;
 
 public class ShapeMenu {
-	Scanner sc = new Scanner(System.in);
-	SquareController scr = new SquareController();
-	TriangleController tc = new TriangleController();
-	
-	
+	private Scanner sc = new Scanner(System.in);
+	private SquareController scr = new SquareController();
+	private TriangleController tc = new TriangleController();
 	
 	public void inputMenu() {
 		System.out.println("===== 도형 프로그램 =====");
@@ -48,7 +46,6 @@ public class ShapeMenu {
 		if(menuNum == 1) {
 			inputSize(3,menuNum);
 		}else if (menuNum == 2) {
-		
 			inputSize(3,menuNum);
 		}else if (menuNum == 3) {
 			printInformation(3);
@@ -152,4 +149,4 @@ public class ShapeMenu {
 			inputMenu(); 
 		}
 	}
-	}
+}

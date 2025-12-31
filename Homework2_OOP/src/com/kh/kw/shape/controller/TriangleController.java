@@ -3,7 +3,7 @@ package com.kh.kw.shape.controller;
 import com.kh.kw.shape.model.vo.Shape;
 
 public class TriangleController {
-	Shape s = new Shape();
+	private Shape s = new Shape();
 	
 	public double calcArea(double height, double width) {
 		s.setHeight(height);
