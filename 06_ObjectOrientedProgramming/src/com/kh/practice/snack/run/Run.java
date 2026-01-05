@@ -7,4 +7,3 @@ public class Run {
 		new SnackMenu().menu();
 	}
 }
-\
