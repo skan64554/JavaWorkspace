@@ -15,18 +15,16 @@ public class PersonController {
 		return new int[] {sc,ec};
 	}
 	
-	public void insertStudent(String name, int age, double height
-			, double weight, int grade, String major) {
+	public void insertStudent(String name, int age, double height,
+			double weight, int grade, String major) {
 		
-		 Student st = new Student(name, age, height, 
-         		weight, grade, major);
-		 for (int i = 0; i < s.length; i++) {
+	Student st = new Student(name, age, height, weight, grade, major);
+		 for(int i = 0; i < s.length; i++){
 	            if (s[i] == null) {
 	                s[i] = st;
 	                break;
-	            }
+	           }
 		 }
-		
 	}
 	
 	public Student[] printStudent() {

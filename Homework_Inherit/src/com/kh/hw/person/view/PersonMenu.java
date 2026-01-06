@@ -14,10 +14,10 @@ public class PersonMenu {
 		while(true) {
 			int[] count = pc.personCount();
 			
-			 System.out.println("학생은 최대 3명까지 저장할 수 있습니다.");
-	         System.out.println("현재 저장된 학생은 " + count[0] + "명입니다.");
-	         System.out.println("사원은 최대 10명까지 저장할 수 있습니다.");
-	         System.out.println("현재 저장된 사원은 " + count[1] + "명입니다.");
+			System.out.println("학생은 최대 3명까지 저장할 수 있습니다.");
+	        System.out.println("현재 저장된 학생은 " + count[0] + "명입니다.");
+	        System.out.println("사원은 최대 10명까지 저장할 수 있습니다.");
+	        System.out.println("현재 저장된 사원은 " + count[1] + "명입니다.");
 	            
 			System.out.println("1. 학생 메뉴");
 			System.out.println("2. 사원 메뉴");
@@ -45,7 +45,7 @@ public class PersonMenu {
 	
 	public void studentMenu() {
 		int count = pc.personCount()[0];
-		
+	while (true) {
 		System.out.println("1. 학생 추가");
 		System.out.println("2. 학생 보기");
 		System.out.println("9. 메인으로");
@@ -54,9 +54,14 @@ public class PersonMenu {
 		
 		switch(menuNum) {
 		case 1:
+			if(pc.personCount()[0] == 3) {
+				System.out.println("학생 수가 3명(MAX)이므로 공간이 꽉찼습니다");
+				continue;
+			}
 			insertStudent();
 			break;
 		case 2:
+			
 			printStudent();
 			break;
 		case 9:
@@ -68,27 +73,25 @@ public class PersonMenu {
 			return;
 		}
 	}
+		
+	}
 	
 	public void employeeMenu() {
 		int count = pc.personCount()[1];
-		
+	while(true) {
 		System.out.println("1. 사원 추가");
 		System.out.println("2. 사원 보기");
-		System.out.println("9. 메인으로");
-		
-		if (count == 10) {
-			System.out.println("사원을 담을 수 있는 공간이 꽉 찼기 때문에 "
-            		+ "사원 추가 메뉴는 더 이상 활성화 되지 않습니다.");
-			return;
-		}
-            
-            		
-		System.out.print("메뉴 번호 : ");
+		System.out.println("9. 메인으로");   
+	    System.out.print("메뉴 번호 : ");
 		int menuNum = sc.nextInt();
-		
-		switch(menuNum) {
+			
+	switch(menuNum) {
 		case 1:
-			if(count < 10)
+			if (count == 10) {
+			System.out.println("사원을 담을 수 있는 공간이 꽉 찼기 때문에 "
+	           		+ "사원 추가 메뉴는 더 이상 활성화 되지 않습니다.");
+			continue;
+			}
 			insertEmployee();
 			break;
 		case 2:
@@ -101,14 +104,12 @@ public class PersonMenu {
 			System.out.println("잘못 입력하셨습니다 다시 입력해주세요");
 			studentMenu();
 			return;
+			}
 		}
+		
 	}
 	
 	public void insertStudent() {
-	if(pc.personCount()[0] == 3) {
-		System.out.println("학생 수가 3명(MAX)이므로 공간이 꽉찼습니다");
-		return;
-	}
 			
 	while (pc.personCount()[0] < 3) {
 		System.out.print("학생 이름 :");
