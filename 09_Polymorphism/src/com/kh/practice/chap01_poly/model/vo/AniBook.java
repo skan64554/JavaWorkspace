@@ -11,7 +11,6 @@ public class AniBook extends Book{
 		// TODO Auto-generated constructor stub
 	}
 	
-
 	public int getAccessAge() {
 		return accessAge;
 	}

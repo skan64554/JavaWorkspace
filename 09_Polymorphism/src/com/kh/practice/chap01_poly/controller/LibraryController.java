@@ -45,18 +45,12 @@ public class LibraryController {
 		int result = 0;
         Book b = bList[index];
 
-        if (b instanceof AniBook) {
-            AniBook ab = (AniBook) b;
-            if (mem.getAge() < ab.getAccessAge()) {
+        if (b instanceof AniBook && mem.getAge() < ((AniBook)b).getAccessAge()) {       
                 result = 1;
-            }
         } 
-        else if (b instanceof CookBook) {
-            CookBook cb = (CookBook) b;
-            if (cb.isCoupon()) {
+        else if (b instanceof CookBook && ((CookBook)b).isCoupon() ) {
                 mem.setCouponCount(mem.getCouponCount() + 1);
                 result = 2;
-            }
         }
         return result;
 	}

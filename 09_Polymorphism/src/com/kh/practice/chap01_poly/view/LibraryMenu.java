@@ -14,12 +14,15 @@ public class LibraryMenu {
 		
 		 System.out.print("이름 : ");
 	     String name = sc.next();
+	     
 	     System.out.print("나이 : ");
 	     int age = sc.nextInt();
+	     
 	     System.out.print("성별 : ");
 	     char gender = sc.next().charAt(0);
 
-	     lc.insertMember(new Member(name, age, gender));
+	     Member mem = new Member(name, age, gender);
+	     lc.insertMember(mem);
 		
 		while(true) {
 			System.out.println(
@@ -44,9 +47,12 @@ public class LibraryMenu {
 				break;
 			case 4:
 				rentBook();
+				break;
 			case 9:
+				System.out.println("프로그램 종료");
 				return;
 			default:
+				System.out.println("잘못입력했습니다");
 				continue;
 			}
 		}
