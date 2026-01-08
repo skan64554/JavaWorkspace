@@ -15,7 +15,7 @@ public class LeapView {
 		
 		if(lc.isLeapYear(year)) {
 			System.out.println(year + "년은 윤년입니다.");
-		}else {
+		}else{
 			System.out.println(year + "년은 평년입니다.");
 		}
 		
