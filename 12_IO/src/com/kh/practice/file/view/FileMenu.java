@@ -18,6 +18,7 @@ public class FileMenu {
 					+ "9. 끝내기 ");
 			System.out.print("메뉴 번호 : ");
 			int menuNum = sc.nextInt();
+			sc.nextLine();
 			
 			switch(menuNum) {
 			case 1:	fileSave();	break;
@@ -35,7 +36,6 @@ public class FileMenu {
 	
 	public void fileSave() {
 		StringBuilder sb = new StringBuilder();
-		sc.nextLine();
 		
 		while(true) {
 			System.out.println("파일에 저장할 내용을 입력하세요.\r\n"
@@ -53,7 +53,7 @@ public class FileMenu {
 			
 			if(fc.checkName(fileName)) {
 				System.out.print("이미 존재하는 파일입니다. 덮어쓰시곘습니까?(y/n): ");
-				char ch = sc.next().charAt(0);
+				char ch = sc.nextLine().charAt(0);
 				
 				if(ch == 'y' || ch == 'Y') {
 					fc.fileSave(fileName, sb); // 덮어쓰기
@@ -68,7 +68,6 @@ public class FileMenu {
 	}
 	
 	public void fileOpen() {
-		sc.nextLine();
 		System.out.print("열 파일명 : ");
 		String fileName = sc.nextLine();
 		
@@ -76,11 +75,11 @@ public class FileMenu {
 			System.out.println(fc.fileOpen(fileName));
 		}else {
 			System.out.println("없는 파일입니다.");
+			return;
 		}
 	}
 	
     public void fileEdit() {
-		sc.nextLine();
 		System.out.print("수정할 파일명 : ");
 	    String fileName = sc.nextLine();
 	    
@@ -96,7 +95,7 @@ public class FileMenu {
 			System.out.print("내용 : ");
 			String input = sc.nextLine();
 			
-			if (input.equals("ex끝it")) break; // [cite: 65]
+			if (input.equals("ex끝it")) break; 
             sb.append(input).append("\r\n");
 	    }
 	    fc.fileEdit(fileName, sb);

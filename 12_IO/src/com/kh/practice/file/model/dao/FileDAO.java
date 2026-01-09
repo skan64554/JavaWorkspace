@@ -29,32 +29,26 @@ public class FileDAO {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}finally {
-				try {
-					fw.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 			}
+			
 		}
 	}
 	
 	public StringBuilder fileOpen(String file) {
 		StringBuilder sb = new StringBuilder();
-		FileInputStream fin = null;
+		FileReader fr = null;
         try { 
-        	fin = new FileInputStream(file);
+        	fr = new FileReader(file);
     
             int value = 0;
-			while( (value = fin.read() )  != -1) {
-				System.out.println(value);
+			while( (value = fr.read() )  != -1) {
+				sb.append((char)value);
 			}
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
 			try {
-				fin.close();
+				fr.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

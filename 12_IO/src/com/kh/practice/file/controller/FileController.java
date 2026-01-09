@@ -9,10 +9,9 @@ public class FileController {
 	public boolean checkName(String file) {
 		return fd.checkName(file);
 	}
-	
+	 
 	public void fileSave(String file, StringBuilder sb) {
-		String s = sb.toString();
-		fd.fileSave(file, s);
+		fd.fileSave(file, sb.toString());
 	}
 	
 	public StringBuilder fileOpen(String file) {
