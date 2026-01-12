@@ -10,7 +10,6 @@ import com.kh.practice.book.model.vo.Book;
 public class BookMenu {
 	private Scanner sc = new Scanner(System.in);
 	private BookController bc = new BookController();
-	
 	private Book[] bArr;
 	
 	public BookMenu(){
@@ -71,6 +70,7 @@ public class BookMenu {
 				break;
 			}
 		}
+		// bc에 fileSave() 매개변수로 전달
 		bc.fileSave(bArr);
 	}
 	

@@ -27,7 +27,7 @@ public class Book implements Serializable {
 	public String toString() {
  
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
-        String dateStr = (date != null) ? sdf.format(date.getTime()) : "날짜 없음";
+        String dateStr = (date != null) ? sdf.format(date.getTimeInMillis()) : "날짜 없음";
         return title + "\t" + author + "\t" + price + "\t" + dateStr + "\t" + discount;
     }
 
