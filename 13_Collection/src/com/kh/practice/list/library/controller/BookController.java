@@ -28,7 +28,8 @@ public class BookController {
 	public ArrayList<Book> searchBook(String keyword) {
 		ArrayList<Book> searchList = new ArrayList<>();
 		for(Book b : bookList) {
-			if(b.getTitle().contains(keyword)) searchList.add(b);
+			if(b.getTitle().contains(keyword)) 
+				searchList.add(b);
 		}
 		return searchList;
 	}

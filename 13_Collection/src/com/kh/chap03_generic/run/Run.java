@@ -3,6 +3,12 @@ package com.kh.chap03_generic.run;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.kh.chap03_generic.model.vo.Child1;
+import com.kh.chap03_generic.model.vo.Child2;
+import com.kh.chap03_generic.model.vo.Generic;
+import com.kh.chap03_generic.model.vo.GenericExtends;
+import com.kh.chap03_generic.model.vo.Parent;
+
 public class Run {
 
 	public static void main(String[] args) {
@@ -28,5 +34,82 @@ public class Run {
 		 * 타입변수 라고도 불린다.
 		 * - 제네릭을 사용하면 런타임이 아닌 컴파일 시점에서 에러 캐치 가능
 		 */
+		
+		Generic<Integer, String> g1 = new Generic<>();
+		g1.setT(10);
+		g1.setG("국도레시");
+		Generic.printTest("zzzz");
+		Generic.printTest(1557);
+		Generic.<String>printTest("국도레시");
+		System.out.println(g1.getT());
+		System.out.println(g1.getG());
+		
+		// 대입될 데이터의 자료형을 미리 지정하지 않고, 컴파일 시점에서 내 맘대로 시전하여
+		// 사용하므로 재사용성이 크게 증가하였다.
+		
+		/*
+		 * 3. 제네릭의 extends 문법
+		 *  - 제네릭에서의 extends는 클래스간의 상속 개념이 아닌, 제네릭으로 지정한
+		 *  자료형의 범위를 "제한"시키는데 사용한다
+		 *  - <T extends Parent> : T에는 Parent클래스나 Parent클래스를 상속받은 자료형만 대입 가능
+		 *  - <T extends Interface> : Interface를 구현한 클래스만 대입 가능
+		 */
+		
+		GenericExtends<Parent> parent = new GenericExtends<>();
+		GenericExtends<Child1> child1 = new GenericExtends<>();
+		
+		parent.setType(new Parent());
+		parent.printing();
+		
+		child1.setType(new Child1());
+		child1.printing();
+		
+		/*
+		 * 4. 와일드카드(?)
+		 * - Generic에 들어가야할 자료형을 모르는 경우 사용
+		 * - 와일드카드(?)의 의미는 어떤 자료형이 들어올지 모른다는 의미로
+		 * 모든 자료형이 들어올 수 있다는 의미는 아니다
+		 * - ?는 extends super예약어로 자료형의 범위를 제한할 수 있다
+		 * - ? extends T : 상한제한 => 와일드카드의 범위를 T 또는 T의 자식들로 제한
+		 * - ? super   T : 하한제한 => 와일드카드의 범위를 T 또는 T의 "조상"들로 제한
+		 */
+		
+		// ?는 자료형의 범위가 정해져 있지 않은 상황에 사용
+		GenericExtends<?> unknown = new GenericExtends<>();
+		// unknown.setType(new Parent());
+		// ?로 타입 변수 사용시 올바른 값을 사용중인지 검사가 불가능하기 때문에 에러가 발생
+		// ?의 제대로된 사용을 위해선 extends와 super를 사용해서 ?의 범위를 제한해야 한다
+		
+		// 1) extends를 통한 와일드카드 상한제한
+		GenericExtends<? extends Parent> unknown2 = new GenericExtends<>();
+		// ?의 범위 : Parent, Parent의 자식
+		
+//		unknown2.setType(new Parent()); // ? 범위에 Parent의 자식, Child1, Child2 가 포함될 수 있으므로 대입 불가능
+//		unknown2.setType(new Child1()); // ? 범위에 Child2도 포함되어있으므로 대입 불가능
+//		unknown2.setType(new Child2()); // ? 범위에 Child1도 포함되어있으므로 대입 불가능
+		
+		// unknown2가 Child1이든 Chlid2든, Parent든, 다형성에 의해 값을 추출할 수 있다
+		// 즉, extends를 통한 상한 제한은 데이터를 가져올 떄 자주 사용한다
+		Parent p = unknown2.getType();
+		
+		// 2) super를 통한 와일드카드 하한제한
+		// ? super Parent : 와일드카드의 범위는 최하 Parent부터 최상 Object
+		GenericExtends<? super Parent> unknown3 = new GenericExtends<>();
+		// ?의 범위 : Parent, Object
+		
+		unknown3.setType(new Parent());
+		unknown3.setType(new Child1()); // 업캐스팅
+		unknown3.setType(new Child2()); // 업캐스팅
+		// 값을 대입하고자 할때는 super를 통한 하한제한을 사용하는 것이 적절하다
+		
+		Parent p3 = unknown3.getType(); // ?는 Object 일 수 있음 , 단 클래스레벨 제네릭 설정시
+		// T extends Parent로 설정했기 때문에 T의 범위는 Parent ~ Parent의 자식클래스로 설정
+		
+		// 따라서 타입변수에 extends를 통한 타입제한이 없는 경우,
+		// 데이터는 항사 Object 형태로만 추출이 가능
+		Object o3 = unknown3.getType();
+		
+		
+		
 	}
 }

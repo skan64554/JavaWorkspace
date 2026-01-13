@@ -56,6 +56,7 @@ public class Book implements Comparable<Book> {
 		this.price = price;
 	}
 
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(author, category, price, title);
@@ -73,7 +74,7 @@ public class Book implements Comparable<Book> {
 		return Objects.equals(author, other.author) && Objects.equals(category, other.category) && price == other.price
 				&& Objects.equals(title, other.title);
 	}
-	
+
 	public int compareTo(Book o) {
 		return this.title.compareTo(o.title);
 	}

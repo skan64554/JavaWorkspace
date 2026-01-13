@@ -59,6 +59,7 @@ public class BookMenu {
             case 2: category = "자연과학"; break;
             case 3: category = "의료"; break;
             case 4: category = "기타"; break;
+            default : System.out.println("다시입력하세요");
         }
 		Book b = new Book(title,author,category,price);
 		bc.insertBook(b);
