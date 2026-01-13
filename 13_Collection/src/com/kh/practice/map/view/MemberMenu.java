@@ -1,7 +1,11 @@
 package com.kh.practice.map.view;
 
+import java.util.Map.Entry;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeMap;
 
+import com.kh.chap04_map.part01_hashMap.model.vo.Snack;
 import com.kh.practice.map.controller.MemberController;
 import com.kh.practice.map.model.vo.Member;
 
@@ -109,15 +113,25 @@ public class MemberMenu {
 		System.out.print("비밀번호 : ");
 		String password = sc.next();
 		
-		String str = mc.login(id, password);
-		System.out.println("현재 이름 : " + str);
-		
-		System.out.print("변경할 이름 : " );
-		String newName = sc.next();
-		newName = mc.changeName(id, newName);
+		String currentName = mc.login(id, password);
+		        if (currentName != null) {
+		            System.out.println("현재 설정된 이름 : " + currentName); 
+		            System.out.print("변경할 이름 : "); String newName = sc.nextLine();
+		            mc.changeName(id, newName); 
+		            System.out.println("이름 변경에 성공하였습니다."); 
+		        } else {
+		            System.out.println("이름 변경에 실패했습니다. 다시 입력해주세요"); 
+		        }
 	}
 	
 	public void sameName() {
+		System.out.print("검색할 이름 : ");
+		String name = sc.next();
+		TreeMap<String, String> result = (TreeMap<String, String>) mc.sameName(name);
 		
+		Set<Entry<String , String>> entrySet = result.entrySet();
+		for(Entry<String, String> entry : result.entrySet()) {
+			System.out.println(entry.getValue() + "-" + entry.getKey());
+		}
 	}
 }

@@ -107,7 +107,7 @@ public class ListRun {
 			
 			// 만약 제네릭 설정을 안한다면?
 			Music m2 = (Music)list.get(0);
-			
+			 
 			ArrayList<Integer> Iarr = new ArrayList<>(3);
 			Iarr.add(1);
 			Iarr.add(9);
@@ -116,7 +116,7 @@ public class ListRun {
 			//7. contains(E e) : boolean
 			System.out.println(Iarr.contains(9));
 			
-			//8. indexOf(E e) : int
+			//8. indexOf(E e) : int 
 			// - 매개인자 요소가 몇 번 인덱스에 있는가 (없으면 -1 반환)
 			System.out.println(Iarr.indexOf(900));
 			

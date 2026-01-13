@@ -42,12 +42,18 @@ public class MemberController {
 	}
 	
 	public void changeName(String id, String newName) {
-		
             map.get(id).setName(newName); 
 	}
 	
-	public TreeMap sameName(String name) {
-		
+	public TreeMap<String, String> sameName(String name) {
+		TreeMap<String,String> result = new TreeMap<>();
+		for(String id : map.keySet()) {
+			if(map.get(id).getName().equals(name)) {
+				result.put(id, name);
+			}
+		}
+		return result;
 	}
+	
 	
 }
