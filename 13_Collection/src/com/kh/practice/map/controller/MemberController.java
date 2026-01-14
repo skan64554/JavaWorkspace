@@ -1,6 +1,7 @@
 package com.kh.practice.map.controller;
 
 import java.util.HashMap;
+import java.util.Set;
 import java.util.TreeMap;
 
 import com.kh.practice.map.model.vo.Member;
@@ -32,7 +33,7 @@ public class MemberController {
 	public boolean changePassword(String id, String oldPw, String newPw) {
 		if(map.containsKey(id)) {
 			
-			if(oldPw.equals(newPw)) {
+			if(map.get(id) != null && oldPw.equals(newPw)) {
 				map.get(id).setPassword(newPw);
 				return true;
 			}
@@ -45,14 +46,16 @@ public class MemberController {
             map.get(id).setName(newName); 
 	}
 	
-	public TreeMap<String, String> sameName(String name) {
-		TreeMap<String,String> result = new TreeMap<>();
-		for(String id : map.keySet()) {
-			if(map.get(id).getName().equals(name)) {
-				result.put(id, name);
+	public TreeMap<String , String> sameName(String name) {
+		Set<String> keys = map.keySet();
+		TreeMap<String, String> tree = new TreeMap<>();
+		for ( String key : keys) {
+			String str = map.get(key).getName();
+			if(str.equals(name)) {
+				tree.put(key,name); // id와 name
 			}
 		}
-		return result;
+		return tree;
 	}
 	
 	

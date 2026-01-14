@@ -19,10 +19,10 @@ public class MemberMenu {
 		
 		while(true) {
 			System.out.print("******* 메인 메뉴 *******\r\n"
-					+ "1. 회원가입 // joinMembership() 실행\r\n"
-					+ "2. 로그인 // logIn() 실행 후 memberMenu() 실행\r\n"
-					+ "3. 같은 이름 회원 찾기 // sameName()\r\n"
-					+ "9. 종료 // “프로그램 종료.” 출력 후 main()으로 리턴\r\n"
+					+ "1. 회원가입 \r\n"
+					+ "2. 로그인\r\n"
+					+ "3. 같은 이름 회원 찾기\r\n"
+					+ "9. 종료\r\n"
 					+ "메뉴 번호 선택 :");
 			int menuNum = sc.nextInt();
 			
@@ -73,36 +73,42 @@ public class MemberMenu {
 	}
 	
 	public void login() {
-		System.out.print("ID : ");
-		String id = sc.next();
-		
-		System.out.print("비밀번호 : ");
-		String password = sc.next();
-		
-		String str = mc.login(id, password);
-		if(str != null) {
-			System.out.println( str + "님 환영합니다"); memberMenu();
+		while(true) {
+			System.out.print("ID : ");
+			String id = sc.next();
+			
+			System.out.print("비밀번호 : ");
+			String password = sc.next();
+			
+			String str = mc.login(id, password);
+			if(str != null) {
+				System.out.println( str + "님 환영합니다"); 
+				memberMenu();
+			}
+			else System.out.println("틀린 아이디 또는 비밀번호입니다. 다시 입력해주세요");
 		}
-		else System.out.println("틀린 아이디 또는 비밀번호입니다. 다시 입력해주세요");
 	}
 	
 	public void changePassword(){
 		
-		System.out.print("ID : ");
-		String id = sc.next();
-		
-		System.out.print("비밀번호 : ");
-		String password = sc.next();
-		
-		System.out.print("비밀번호 : ");
-		String newPassword = sc.next();
-		
-		boolean result = mc.changePassword(id,password,newPassword);
-				
-		if(result) {
-			System.out.println("이름 변경에 성공하였습니다");
-		}else {
-			System.out.println("이름 변경에 실패했습니다");	
+		while(true) {
+			System.out.print("ID : ");
+			String id = sc.next();
+			
+			System.out.print("비밀번호 : ");
+			String password = sc.next();
+			
+			System.out.print("변경할 비밀번호 : ");
+			String newPassword = sc.next();
+			
+			boolean result = mc.changePassword(id,password,newPassword);
+					
+			if(result) {
+				System.out.println("비밀번호 변경에 성공하였습니다");
+				break;
+			}	else {
+				System.out.println("비밀번호 변경에 실패했습니다");	
+			}
 		}
 	}
 	
@@ -113,24 +119,28 @@ public class MemberMenu {
 		System.out.print("비밀번호 : ");
 		String password = sc.next();
 		
+		
 		String currentName = mc.login(id, password);
 		        if (currentName != null) {
 		            System.out.println("현재 설정된 이름 : " + currentName); 
-		            System.out.print("변경할 이름 : "); String newName = sc.nextLine();
+		            System.out.print("변경할 이름 : "); 
+		            String newName = sc.next();
 		            mc.changeName(id, newName); 
 		            System.out.println("이름 변경에 성공하였습니다."); 
 		        } else {
 		            System.out.println("이름 변경에 실패했습니다. 다시 입력해주세요"); 
+		            changeName();
+		            return;
 		        }
 	}
 	
 	public void sameName() {
 		System.out.print("검색할 이름 : ");
 		String name = sc.next();
-		TreeMap<String, String> result = (TreeMap<String, String>) mc.sameName(name);
+		TreeMap<String, String> map = mc.sameName(name);
 		
-		Set<Entry<String , String>> entrySet = result.entrySet();
-		for(Entry<String, String> entry : result.entrySet()) {
+		Set<Entry<String , String>> entrySet = map.entrySet();
+		for(Entry<String, String> entry : entrySet) {
 			System.out.println(entry.getValue() + "-" + entry.getKey());
 		}
 	}

@@ -12,6 +12,7 @@ public class Member {
 		this.password = password;
 		this.name = name;
 	}
+	
 
 	@Override
 	public String toString() {
