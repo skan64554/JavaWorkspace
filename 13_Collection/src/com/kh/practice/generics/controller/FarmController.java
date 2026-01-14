@@ -19,7 +19,7 @@ public class FarmController {
 	
 	public boolean changeAmount(Farm f, int amount) {
 		
-	}
+	} 
 	
 	public HashMap<Farm,Integer> printFarm(){
 		
