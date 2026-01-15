@@ -17,33 +17,34 @@ public class Data {
 					e.printStackTrace();
 				}
 			}
-		
 		this.value = value;
-		this.isEmpty = false;
+		isEmpty = false;
 		System.out.println("값이 입력되었습니다.");
         System.out.println("put value : " + value);
-        
         notify();
 		}
 	}
 
-	public int getValue() throws EmptyException {
+	public int getValue(){
 		synchronized(this) {
 			if(isEmpty) {
-				
-				try {
-
-					wait();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				} 
-				throw new EmptyException("현재 입력된 값이 없습니다. 기다리십시오…");
+				try {	
+				  throw new EmptyException("현재 입력된 값이 없습니다. 기다리십시오…");
+				} catch (EmptyException e) {
+					String errMessage = e.getMessage();
+					System.out.println(errMessage);
+				    try {
+						wait();
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				} 		
 			}
-		
 		int returnValue = value;
-		this.isEmpty = true;
-		System.out.println("get value : " + returnValue);
-        System.out.println("값을 꺼냈습니다. value가 비었습니다.");
+		isEmpty = true;
+		System.out.println("Get value : " + value);
+		System.out.println("값을 꺼냈습니다. value가 비었습니다.");
         
         notify();
 		

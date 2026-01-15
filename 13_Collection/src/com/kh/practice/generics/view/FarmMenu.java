@@ -3,6 +3,10 @@ package com.kh.practice.generics.view;
 import java.util.Scanner;
 
 import com.kh.practice.generics.controller.FarmController;
+import com.kh.practice.generics.model.vo.Farm;
+import com.kh.practice.generics.model.vo.Fruit;
+import com.kh.practice.generics.model.vo.Nut;
+import com.kh.practice.generics.model.vo.Vegetable;
 
 public class FarmMenu {
 	
@@ -80,19 +84,81 @@ public class FarmMenu {
 	}
 	
 	public void addNewKind() {
-		
+		while(true) {
+			System.out.print("1. 과일 / 2. 채소 / 3. 견과 : ");
+			int num = sc.nextInt();
+			if (num < 1 || num > 3) {
+	            System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+	            continue;
+	        }
+			System.out.print("농산물 이름 : ");
+			String vName = sc.next();
+			
+			System.out.print("수량 : ");
+			int amount = sc.nextInt();
+			
+			Farm f = (num == 1) ? new Fruit("과일", vName) : 
+				(num == 2) ? new Vegetable("채소", vName) : new Nut("견과", vName); 
+		     if (fc.addNewKind(f, amount)) {
+		           System.out.println("새 농산물이 추가되었습니다."); 
+		           break;
+		     } else {
+		           System.out.println("새 농산물 추가에 실패하였습니다. 다시 입력해주세요.");
+		      }
+		}
 	}
 	
 	public void removeKind() {
-		
+		while(true) {
+			System.out.print("1. 과일 / 2. 채소 / 3. 견과 : ");
+			int num = sc.nextInt();
+			if (num < 1 || num > 3) {
+	            System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+	            continue;
+	        }
+			System.out.print("농산물 이름 : ");
+			String vName = sc.next();
+			
+			Farm f = (num == 1) ? new Fruit("과일", vName) : 
+				(num == 2) ? new Vegetable("채소", vName) : new Nut("견과", vName); 
+		     if (fc.removeKind(f)) {
+		           System.out.println("농산물 삭제에 성공하였습니다."); 
+		           break;
+		     } else {
+		           System.out.println("새 농산물 추가에 실패하였습니다. 다시 입력해주세요.");
+		      }
+		}
 	}
 	
 	public void changeAmount() {
-		
+		while(true) {
+			System.out.print("1. 과일 / 2. 채소 / 3. 견과 : ");
+			int num = sc.nextInt();
+			if (num < 1 || num > 3) {
+	            System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+	            continue;
+	        }
+			System.out.print("농산물 이름 : ");
+			String vName = sc.next();
+
+			System.out.print("수량 : ");
+			int amount = sc.nextInt();
+			
+			Farm f = (num == 1) ? new Fruit("과일", vName) : 
+				(num == 2) ? new Vegetable("채소", vName) : new Nut("견과", vName); 
+		     if (fc.changeAmount(f , amount)) {
+		           System.out.println("농산물 수량이 수정되었습니다."); 
+		           break;
+		     } else {
+		           System.out.println("농산물 수량 수정에 실패하였습니다. 다시 입력해주세요.");
+		      }
+		}
 	}
 	
 	public void printFarm() {
-		
+		for(HashMap<Farm,String> hm : fc.printFarm().keySet()) {
+			System.out.println();
+		}
 	}
 	
 	public void buyFarm() {

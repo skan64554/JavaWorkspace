@@ -1,6 +1,6 @@
 package com.kh.practice.thread;
 
-public class Customer implements Runnable {
+public class Customer extends Thread{
 
 	private Data data;
 	
@@ -10,13 +10,8 @@ public class Customer implements Runnable {
 	
 	@Override
 	public void run() {
-		for(int i = 0; i < 20; i++) {
-			try {
-				data.getValue();
-			} catch (EmptyException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+		for(int i = 0; i < 10; i++) {
+			int value = data.getValue();
 			
 			try {
 				Thread.sleep(100);
