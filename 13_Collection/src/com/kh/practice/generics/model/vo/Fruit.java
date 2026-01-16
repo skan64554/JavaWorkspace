@@ -15,7 +15,7 @@ public class Fruit extends Farm{
 
 	@Override
 	public String toString() {
-		return getKind() + ": " + name;
+		return super.getKind() + ": " + name;
 	}
 
 	public String getName() {

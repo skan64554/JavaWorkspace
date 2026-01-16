@@ -1,6 +1,10 @@
 package com.kh.practice.generics.view;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 import com.kh.practice.generics.controller.FarmController;
 import com.kh.practice.generics.model.vo.Farm;
@@ -156,20 +160,60 @@ public class FarmMenu {
 	}
 	
 	public void printFarm() {
-		for(HashMap<Farm,String> hm : fc.printFarm().keySet()) {
-			System.out.println();
+		Map<Farm, Integer> map = fc.printFarm();
+		Set<Farm> set = map.keySet();
+		for(Farm f : set) {
+			System.out.println(f + "("+map.get(f)+"개)");
 		}
 	}
 	
+	private Farm inputFarm() {
+		Farm f = null;
+		while(true) {
+			System.out.print("1. 과일 / 2. 채소 / 3. 견과 : ");
+			int num = sc.nextInt();
+			if (num < 1 || num > 3) {
+	            System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+	            continue;
+			}
+			System.out.print("농산물 이름 : ");
+			String vName = sc.next();
+	
+			f = (num == 1) ? new Fruit("과일", vName) : 
+				(num == 2) ? new Vegetable("채소", vName) : new Nut("견과", vName); 
+			break;
+			}
+		return f;
+	}
+	
 	public void buyFarm() {
+		Farm f = inputFarm();
+		boolean result = fc.buyFarm(f);
 		
+		if(result) {
+			System.out.println("구매에 성공하였습니다.");
+		}else {
+			System.out.println("마트에 없는 물건이거나 수량이 없습니다.");
+		}
 	}
 	
 	public void removeFarm() {
+		Farm f = inputFarm();
+		boolean result = fc.removeFarm(f);
 		
+		if(result) {
+			System.out.println("삭제에 성공하였습니다.");
+		}else {
+			System.out.println("마트에 없는 물건이거나 수량이 없습니다.");
+		}
 	}
 	
 	public void printBuyFarm() {
+		List<Farm> list = fc.printBuyFarm();
+		Iterator<Farm> iter = list.iterator();
 		
+		while(iter.hasNext()) {
+			System.out.println(iter.next());
+		}
 	}
 }
