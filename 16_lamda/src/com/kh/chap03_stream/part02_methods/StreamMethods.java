@@ -225,8 +225,7 @@ public class StreamMethods {
 				.filter( s -> s.length() <= 4)
 				.findAny()
 				.get();
-		System.out.println(str);
-		
+		System.out.println();
 	}
 	
 	
