@@ -51,7 +51,7 @@ public class StreamMethods {
 		String[] names = {"강감찬","강원래","홍길동","강형욱","코현민"};
 		
 		Arrays
-			.stream(names)
+			.stream(names) 
 			.filter( name -> name.startsWith("강"))
 			.forEach(System.out::println);
 		
@@ -59,8 +59,8 @@ public class StreamMethods {
 		List<Integer> list2 = Arrays.asList(1,2,3,4,5);
 			list2.stream() // Stream<Integer>
 				.map( (i) -> i + "!" ) // Stream<String> -> 값, 자료형 모드 반환
-				.forEach(System.out::println);
-		// 3. mapTo(Int/Double/Long) : Stream을 기보자료형스트림으로 변경해주는 메서드
+				.forEach(System.out::print);
+		// 3. mapTo(Int/Double/Long) : Stream을 기본자료형스트림으로 변경해주는 메서드
 		Arrays
 			.stream(names)	
 			.mapToInt( name -> name.length()) // IntStream
@@ -198,7 +198,7 @@ public class StreamMethods {
 		bool = Arrays
 				.asList("홍길동4","123","가나다")
 				.stream()
-				.noneMatch( s -> s.length() > 4);
+				.noneMatch( s -> s.length() > 4); 
 		System.out.println(bool);
 		
 		// 7-3) allMatch : 스트림의 요소 모두가 true인 경우 true
