@@ -36,7 +36,7 @@ public class OptionalMethods {
 	}
 	
 	public void test1() {
-		List<String> list = Arrays.asList("홍길동","신사",null,"");
+		List<String> list = Arrays.asList("홍길동","신사","여우");
 		list.stream()
 			.forEach(s -> System.out.println(s + " : " + getStringLength(s)));
 	}
@@ -88,7 +88,7 @@ public class OptionalMethods {
         }
         public Member getMember() {
             return member;
-        }
+        } 
         public void setMember(Member member) {
             this.member = member;
         }

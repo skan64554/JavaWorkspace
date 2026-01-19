@@ -20,7 +20,8 @@ public class StreamBasic {
 		 *  - 데이터의 흐름, 스트림 내부의 데이터를 다른 스트림으로 보내고, 다시 보내는 식으로 무한한 흐름을 만들어 낼 수 있는 클래스
 		 *  - 주로 컬렉션/배열의 요소들에 대한 데이터 처리시 많이 사용된다.
 		 *  - 컬렉션의 데이터를 "함수형 프로그래밍 스타일"로 처리할 수 있도록 지원하는 클래스
-		 *  - 기존의 반복문, 조건문을 사용하여 처리했던 다양한 작업들을 람다식을 통해 제어가 가능하므로 다양한 메서드들을 정의해 두었다.
+		 *  - 기존의 반복문, 조건문을 사용하여 처리했던 다양한 작업들을 람다식을 통해 제어가 가능하므로 
+		 *  다양한 메서드들을 정의해 두었다.
 		 *  - 각종 자료구조(컬렉션,배열...)들을 스트림을통해 일관성 있게 제어할 수 있도록 정의해 두었다
 		 *  
 		 * 스트림의 연산메서드
@@ -52,10 +53,15 @@ public class StreamBasic {
 		// 1. 배열
 		int [] arr = {1,2,3,4,5,6,7,8,9,10};
 		IntStream intstream = Arrays.stream(arr);
+		for(int a : arr) {
+			System.out.print(a);
+		}
+		System.out.println();
+		
 		
 		String[] sArr = {"아자스","야르","무지컬"};
 		Stream<String> stream = Arrays.stream(sArr);
-		
+	
 		// 2. 컬렉션
 		ArrayList<Integer> list = new ArrayList<>();
 		Stream<Integer> arrayStream = list.stream();
@@ -88,14 +94,14 @@ public class StreamBasic {
 		
 		// 4. 파일스트림을 통한 스트림 생성
 		
-		try(BufferedReader br = new BufferedReader(new FileReader("file.txt"))){
-			Stream<String> lines = br.lines();
-			lines.forEach( str -> System.out.println(str));
-		}catch(FileNotFoundException e) {
-			e.printStackTrace();
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
+//		try(BufferedReader br = new BufferedReader(new FileReader("file.txt"))){
+//			Stream<String> lines = br.lines();
+//			lines.forEach( str -> System.out.println(str));
+//		}catch(FileNotFoundException e) {
+//			e.printStackTrace();
+//		}catch(IOException e) {
+//			e.printStackTrace();
+//		}
 		
 		// Stream의 반복문
 		//  1) 배열의 반복문
