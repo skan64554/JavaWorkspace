@@ -60,7 +60,7 @@ public class StreamPractice {
        		stream1
        		.distinct()
        		.filter( i -> i % 2 == 0)
-       		.forEach(System.out::println);
+       		.forEach( i -> System.out.print(i + " "));
    
         // 2. list에서 중복을 제거한 후 값이 5 이상이면서 홀수를 오름차순 출력 하는 프로그램
         //결과 : 9 11
@@ -84,8 +84,8 @@ public class StreamPractice {
         //[A, A, B, B, C, C, D, E, F, G]
        	List<String> upperList =
                  strList.stream()
-                         .map(String::toUpperCase)
-                         .toList();
+                         .map(String::toUpperCase) // str -> str.toUpperCase()
+                         .collect(Collectors.toList());
         System.out.println(upperList);
 
         // 5. strlist에서 중복값을 제거후 각 문자를 하나의 문자열로 합쳐서 반환해주는 프로그램
@@ -100,9 +100,10 @@ public class StreamPractice {
         // 이름: 나이
         //강감찬 : 16 김말똥 : 29 아무개 : 23 이순신 : 25 홍길동 : 15
         sList.stream()
-        .sorted(Comparator.comparing(Student::getName))
+        .sorted( (s1,s2) -> s1.name.compareTo(s2.name))
         .forEach(s -> System.out.print(s.getName() + " : " + s.getAge() + " "));
         
+        System.out.println();
         // 7. slist에서 20살 이상인 학생의 평균점수를 구하는 프로그램
         // 80.0
         double score =
